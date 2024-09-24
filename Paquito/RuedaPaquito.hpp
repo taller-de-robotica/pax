@@ -14,10 +14,13 @@ public:
 
     void init()
     {
-        Serial.println(8);
+        //Serial.println(1);
         pinMode(this->speedPWM, OUTPUT);
         pinMode(this->dirPin1, OUTPUT);
         pinMode(this->dirPin2, OUTPUT);
+        analogWrite(this->speedPWM, 0);
+        digitalWrite(this->dirPin1, LOW);
+        digitalWrite(this->dirPin2, LOW);
     }
 
     void avanzar(int velocidad){
@@ -28,12 +31,11 @@ public:
 
     void retroceder(int velocidad) {
         analogWrite(this->speedPWM, velocidad);
-        digitalWrite(this->dirPin1, HIGH);
-        digitalWrite(this->dirPin2, LOW);
+        digitalWrite(this->dirPin1, LOW);
+        digitalWrite(this->dirPin2, HIGH);
     }
 
     void frenar() {
         analogWrite(this->speedPWM, 0);
     }
 };
-
