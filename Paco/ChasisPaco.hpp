@@ -9,20 +9,20 @@
 #define DIR_DD2 23
 
 // Delantera Izquierda
-#define SPD_DI1 4
-#define SPD_DI2 3
+#define SPD_DI1 3
+#define SPD_DI2 4
 #define DIR_DI1 34
 #define DIR_DI2 35
 
 // Trasero Derecho
-#define SPD_TD1  5
-#define SPD_TD2  6
+#define SPD_TD1  6
+#define SPD_TD2  5
 #define DIR_TD1 27
 #define DIR_TD2 26
 
 // Trasera Izquierda
-#define SPD_TI1  7
-#define SPD_TI2  8
+#define SPD_TI1  8
+#define SPD_TI2  7
 #define DIR_TI1 31
 #define DIR_TI2 30
 
@@ -35,7 +35,7 @@ public:
     ChasisPaco() : 
       RDD(SPD_DD1,SPD_DD2,DIR_DD1,DIR_DD2),
       RDI(SPD_DI1,SPD_DI2,DIR_DI1,DIR_DI2),
-      RTD(SPD_TD1,SPD_TD1,DIR_TD1,DIR_TD2),
+      RTD(SPD_TD1,SPD_TD2,DIR_TD1,DIR_TD2),
       RTI(SPD_TI1,SPD_TI2,DIR_TI1,DIR_TI2)
       {
       }
@@ -49,9 +49,9 @@ public:
     }
 
     void testRueda(){
-        RTI.avanzar(70);
+        RTD.avanzar(70);
         delay(1000);
-        RTI.frenar();
+        RTD.frenar();
         delay(1000);
     }
 
