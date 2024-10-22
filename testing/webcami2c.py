@@ -58,6 +58,7 @@ def send_command(command):
     """
     with SMBus(1) as bus:
         # El límite de SMBus son 32 bytes
+        print("manejando SMBUS")
         data = [command, 100]
         bus.write_i2c_block_data(sm_slave_addr, 0, data)
         time.sleep(3)
@@ -89,12 +90,15 @@ class StreamingHandler(server.BaseHTTPRequestHandler):
         if self.path == '/command/':
             content_length = int(self.headers['Content-Length'])
             body = self.rfile.read(content_length)
-            command = body.decode("utf-8")
+            command = body.decode("utf-8").strip()
             print("POST body:", command)
             if command == 'forward':
                 ## Descomenta para que envíe el comando al Arduino
-                #send_command(FORWARD)
+                print("Recibió 'forward'")
+                send_command(FORWARD)
                 pass
+            else:
+                print("not forward")
             content = '{"command": "forward", "status": "ok"}'.encode('utf-8')
             self.send_response(200)
             self.send_header('Content-Type', 'application/json')
