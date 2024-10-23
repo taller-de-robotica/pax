@@ -49,18 +49,18 @@ public:
         delay(1000);
     }
 
-    void right_shift(int speed_fl_fwd, int speed_rl_bck, int speed_rr_fwd, int speed_fr_bck) {
-        RDI.avanzar(speed_fl_fwd); 
-        RTI.retroceder(speed_rl_bck); 
-        RDD.retroceder(speed_fr_bck);
-        RTD.avanzar(speed_rr_fwd);
+    void right_shift(int speed) {
+        RDI.retroceder(speed); 
+        RTI.avanzar(speed); 
+        RDD.avanzar(speed);
+        RTD.retroceder(speed);
     }
 
-    void left_shift(int speed_fl_bck, int speed_rl_fwd, int speed_rr_bck, int speed_fr_fwd) {
-        RDI.retroceder(speed_fl_bck);
-        RTI.avanzar(speed_rl_fwd);
-        RDD.avanzar(speed_fr_fwd);
-        RTD.retroceder(speed_rr_bck);
+    void left_shift(int speed) {
+        RDI.avanzar(speed);
+        RTI.retroceder(speed);
+        RDD.retroceder(speed);
+        RTD.avanzar(speed);
     }
 
     void go_advance(int speed) {
@@ -124,6 +124,22 @@ public:
         RTD.frenar();
         RDD.frenar();
         RDI.frenar();
+    }
+    void forward_right(int speed) {
+        RDD.avanzar(speed);
+        RTI.avanzar(speed);
+    }
+    void forward_left(int speed) {
+        RDI.avanzar(speed);
+        RTD.avanzar(speed);
+    }
+    void backward_right(int speed) {
+        RDI.retroceder(speed);
+        RTD.retroceder(speed);
+    }
+    void backward_left(int speed) {
+        RDD.retroceder(speed);
+        RTI.retroceder(speed);
     }
 };
 
