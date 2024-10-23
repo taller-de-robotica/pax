@@ -93,18 +93,28 @@ void receiveEvent(int howMany) {
       }else if( inChar == 90) {
         chasis.countclockwise(vel);
         continue;
-      }else if (inchar == -1) {
+      }else if(inChar == 105){
+        chasis.right_shift(vel);
+        continue;
+      }else if(inChar == 150){
+        chasis.left_shift(vel);
+        continue;
+      }else if(inChar == 9){
+        chasis.forward_right(vel);
+        continue;
+      }else if(inChar == 6){
+        chasis.forward_left(vel);
+        continue;
+      }else if(inChar == 96){
+        chasis.backward_right(vel);
+        continue;
+      }else if(inChar == 144){
+        chasis.backward_left(vel);
+        continue;
+      }else if (inChar == -1) {
         chasis.right_turn(vel);
-      }else if (inchar == 1-2) {
+      }else if (inChar == -2) {
         chasis.left_turn(vel);
-      }else if (inchar == 5) {
-        chasis.right_shift(vel,vel,vel, vel);
-      }else if (inchar == 10) {
-        chasis.left_shift(vel,vel,vel,vel);
-      }else if (inchar == -3) {
-        chasis.right_back(vel);
-      }else if (inchar == -4) {
-        chasis.left_back(vel);
       }else{
         //
       }
