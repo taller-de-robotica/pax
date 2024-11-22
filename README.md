@@ -1,2 +1,0 @@
-# pax
-OOP para pacos
